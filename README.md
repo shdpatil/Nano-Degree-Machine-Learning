@@ -47,6 +47,7 @@ long_term_incentive                    9.922                       65
 
 restricted_stock                      9.212                      109
 
+
 total_payments                       8.772                       123
 
 shared_receipt_with_poi             8.589                        86
@@ -88,6 +89,7 @@ Approximate feature ranking :
 6 feature total_payments (0.0879795396419)
 7 feature loan_advances (0.0747826086957)
 8 feature restricted_stock_deferred (0.0534161490683)
+
 9 feature deferred_income (0.0534161490683)
 10 feature total_stock_value (0.0377115287109)
 But with these features my precision and recall were too low (less than 0.3) so I had to change
@@ -96,6 +98,7 @@ this dataset I cannot use accuracy for evaluating my algorithm because there are
 dataset and the best evaluator are precision and recall. There were only 18 examples of POIs in
 the dataset. There were 35 people who were POIs in “real life”, but for various reasons, half of
 those are not present in this dataset.
+
 Finally I picked the following features:
 ["fraction_from_poi_email", "fraction_to_poi_email", “shared_receipt_with_poi”]
 My idea behind using these features were to investigate the strenght of communication link between poi and compare it between poi and other person to determine whether they can be considered as poi as well. It was found certainly there is strong communcation link between the pois then between poi and non-poi's.
@@ -108,6 +111,7 @@ and interactive assumptions of Naive Bayes well.
 I selected Decision Tree Algorithm for the POI identifier. It gave me accuracy before tuning
 parameters = 0.9. No feature scaling was deployed, as it’s not necessary when using a decision
 tree.
+
 After selecting features and algorithm I manually tuned parameter min_samples_split .
 min_samples_split    precision    recall
       2                0.67        0.8
@@ -124,11 +128,13 @@ Validation in Machine Learning is the process by which you check the validity of
 This process was validated using 3fold
 crossvalidation,
 precision and recall scores.
+
 First I used accuracy to evaluate my algorithm. It was a mistake because in this case we have a
 class imbalance problem the
 number of POIs is small compared to the total number of
 examples in the dataset. So I had to use precision and recall for these activities instead.
 I was able to reach average value of precision = 0.68, recall = 0.8.
+
 Conclusion:
 The precision can be interpreted as the likelihood that a person who is identified as a POI is actually a true POI; the fact that this is 0.68 means that using this identifier to flag POI’s would result in 32% of the positive flags being false alarms. Recall measures how likely it is that identifier will flag a POI in the test set. 80% of the time it would catch that person, and 20% of the time it wouldn’t.
 These numbers are quite good but we still can improve the strategy. One of the possible paths to improvement is digging in to the emails data more.
