@@ -20,7 +20,7 @@ There are four major steps in my project:
 3. Algorithm
 4. Validation
 
-The Enron Data:
+#### The Enron Data:
 First of all I’d like to have a look at my data and check it for outliers. I plot salaries and bonuses
 on Enron employees and see an outlier in the data.
 When I check it I see this is a number for total salary and bonus. As this is not sensible
