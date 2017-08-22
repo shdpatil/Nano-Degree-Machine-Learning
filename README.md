@@ -18,8 +18,8 @@ There are four major steps in my project:
 1. Enron dataset
 2. Feature processing
 3. Algorithm
-
 4. Validation
+
 The Enron Data:
 First of all I’d like to have a look at my data and check it for outliers. I plot salaries and bonuses
 on Enron employees and see an outlier in the data.
