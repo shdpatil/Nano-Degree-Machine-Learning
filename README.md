@@ -96,7 +96,7 @@ But with these features my precision and recall were too low (less than 0.3) so 
 my strategy and manually pick features which gave me precision and recall values over 0.3. In
 this dataset I cannot use accuracy for evaluating my algorithm because there are few POI’s in
 dataset and the best evaluator are precision and recall. There were only 18 examples of POIs in
-the dataset. There were 35 people who were POIs in “real life”, but for various reasons, half of
+#the dataset. There were 35 people who were POIs in “real life”, but for various reasons, half of
 those are not present in this dataset.
 
 Finally I picked the following features:
@@ -135,6 +135,7 @@ number of POIs is small compared to the total number of
 examples in the dataset. So I had to use precision and recall for these activities instead.
 I was able to reach average value of precision = 0.68, recall = 0.8.
 
-Conclusion:
+#### Conclusion:
+
 The precision can be interpreted as the likelihood that a person who is identified as a POI is actually a true POI; the fact that this is 0.68 means that using this identifier to flag POI’s would result in 32% of the positive flags being false alarms. Recall measures how likely it is that identifier will flag a POI in the test set. 80% of the time it would catch that person, and 20% of the time it wouldn’t.
 These numbers are quite good but we still can improve the strategy. One of the possible paths to improvement is digging in to the emails data more.
